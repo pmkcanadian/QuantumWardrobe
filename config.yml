@@ -144,8 +144,7 @@ Go-Back-Button:
   Command: sbmenu
   Slot: 48
   Name: "&aGo Back"
-  Lore:
-    - "&7To SkyBlock Menu"
+  Lore: ""
 Close-Button:
   Enable: true
   Slot: 49
@@ -172,7 +171,9 @@ Allow-Item:
     Name: none
     # if one of the lore line of an item contains this String it will allow to put that in the gui
     Lore: none
-    Type: "PLAYER_HEAD"
+    Type: 
+      - "PLAYER_HEAD"
+      - "GLASS"
     # if an item has that check it will allow it to put in to the gui no matter if it not contains the top check
     Specific-Check-Lore: "HELMET"
   Chestplate-Slot:
