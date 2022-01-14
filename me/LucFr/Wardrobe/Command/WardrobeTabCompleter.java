@@ -129,6 +129,8 @@ public class WardrobeTabCompleter implements TabCompleter {
 				arguments.add("reload");
 				arguments.add("open");
 				arguments.add("reset");
+				arguments.add("check");
+				arguments.add("allow");
 				for (String a : arguments) {
 					if (a.toLowerCase().startsWith(args[0].toLowerCase()))
 						result.add(a);
@@ -138,7 +140,7 @@ public class WardrobeTabCompleter implements TabCompleter {
 				if (args[0].equalsIgnoreCase("reload")) {
 					result.clear();
 					return result;
-				} else if (args[0].equalsIgnoreCase("open") || args[0].equalsIgnoreCase("reset")) {
+				} else if (args[0].equalsIgnoreCase("open") || args[0].equalsIgnoreCase("reset") || args[0].equalsIgnoreCase("check")) {
 					arguments.clear();
 					result.clear();
 					for(Player player : Bukkit.getOnlinePlayers()) {
@@ -147,6 +149,18 @@ public class WardrobeTabCompleter implements TabCompleter {
 					}
 					for (String a : arguments) {
 						if (a.toLowerCase().startsWith(args[1]))
+							result.add(a);
+					}
+					return result;
+				} else if (args[0].equalsIgnoreCase("allow")) {
+					arguments.clear();
+					result.clear();
+					arguments.add("helmet");
+					arguments.add("chestplate");
+					arguments.add("leggings");
+					arguments.add("boots");
+					for (String a : arguments) {
+						if (a.toLowerCase().startsWith(args[1].toLowerCase()))
 							result.add(a);
 					}
 					return result;

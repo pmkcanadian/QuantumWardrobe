@@ -13,8 +13,8 @@ import me.LucFr.Wardrobe.Wardrobe;
 
 public class Page1Data {
 	private Wardrobe plugin;
-	private FileConfiguration dataCarpentryRecipes = null;
-	private File CarpentryRecipes = null;
+	private FileConfiguration dataPage1 = null;
+	private File Page1 = null;
 	
 	public Page1Data(Wardrobe plugin) {
 		this.plugin = plugin;
@@ -22,42 +22,42 @@ public class Page1Data {
 	}
 	
 	public void ReloadConfig() {
-		if (this.CarpentryRecipes == null)
-			this.CarpentryRecipes = new File("plugins/Wardrobe/data/Page 1.yml");
+		if (this.Page1 == null)
+			this.Page1 = new File("plugins/Wardrobe/data/Page 1.yml");
 		
 		
-		this.dataCarpentryRecipes = YamlConfiguration.loadConfiguration(this.CarpentryRecipes);
+		this.dataPage1 = YamlConfiguration.loadConfiguration(this.Page1);
 		
 		InputStream defaultStream = this.plugin.getResource("data/Page 1.yml");
 		if (defaultStream != null) {
 			YamlConfiguration defaultCongfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defaultStream));
-			this.dataCarpentryRecipes.setDefaults(defaultCongfig);
+			this.dataPage1.setDefaults(defaultCongfig);
 		}
 	}
 	
 	public FileConfiguration getConfig() {
-		if (this.dataCarpentryRecipes == null)
+		if (this.dataPage1 == null)
 			ReloadConfig();
 		
-		return this.dataCarpentryRecipes;
+		return this.dataPage1;
 	}
 	
 	public void saveConfig() {
-		if (this.dataCarpentryRecipes == null || this.CarpentryRecipes == null) 
+		if (this.dataPage1 == null || this.Page1 == null) 
 			return;
 		
 		try {
-			this.getConfig().save(this.CarpentryRecipes);
+			this.getConfig().save(this.Page1);
 		} catch (IOException e) {
-			plugin.getLogger().log(Level.SEVERE, "Could not save Data to " + this.CarpentryRecipes, e);
+			plugin.getLogger().log(Level.SEVERE, "Could not save Data to " + this.Page1, e);
 		}
 	}
 	
 	public void saveDefaultConfig() {
-		if (this.dataCarpentryRecipes == null)
-			this.CarpentryRecipes = new File("plugins/Wardrobe/data/Page 1.yml");
+		if (this.dataPage1 == null)
+			this.Page1 = new File("plugins/Wardrobe/data/Page 1.yml");
 		
-		if (!this.CarpentryRecipes.exists()) {
+		if (!this.Page1.exists()) {
 			this.plugin.saveResource("data/Page 1.yml", false);
 		}
 	}
