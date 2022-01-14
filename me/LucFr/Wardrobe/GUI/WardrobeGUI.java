@@ -37,7 +37,7 @@ public class WardrobeGUI {
 			Background.setType(Material.valueOf(Mat));
 			Background.setDurability((short) 15);
 		}
-		else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+		else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 			String Mat = "BLACK_STAINED_GLASS_PANE";
 			Background.setType(Material.valueOf(Mat));
 		}
@@ -61,7 +61,7 @@ public class WardrobeGUI {
 			if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
 				ButtonCheck = WardrobePage1.getItem(i).getData().toString();
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				ButtonCheck = WardrobePage1.getItem(i).getType().toString();
 			}
 			if (ButtonCheck.contains("PINK_DYE") || ButtonCheck.contains("PINK DYE")) {
@@ -126,7 +126,7 @@ public class WardrobeGUI {
 			Background.setType(Material.valueOf(Mat));
 			Background.setDurability((short) 15);
 		}
-		else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+		else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 			String Mat = "BLACK_STAINED_GLASS_PANE";
 			Background.setType(Material.valueOf(Mat));
 		}
@@ -150,7 +150,7 @@ public class WardrobeGUI {
 			if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
 				ButtonCheck = WardrobePage2.getItem(i).getData().toString();
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				ButtonCheck = WardrobePage2.getItem(i).getType().toString();
 			}
 			if (ButtonCheck .contains("PINK_DYE") || ButtonCheck .contains("PINK DYE")) {
@@ -187,7 +187,7 @@ public class WardrobeGUI {
 				Background.setType(Material.valueOf(Mat));
 				Background.setDurability((short) 15);
 			}
-			else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				String Mat = "BLACK_STAINED_GLASS_PANE";
 				Background.setType(Material.valueOf(Mat));
 			}
@@ -316,7 +316,7 @@ public class WardrobeGUI {
 						String Mat = "ROSE_RED";
 						Button.setType(Material.valueOf(Mat)); 
 					}
-					if (Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+					if (Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 						String Mat = "RED_DYE";
 						Button.setType(Material.valueOf(Mat)); 
 					}
@@ -357,7 +357,7 @@ public class WardrobeGUI {
 				Background.setType(Material.valueOf(Mat));
 				Background.setDurability((short) 15);
 			}
-			else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				String Mat = "BLACK_STAINED_GLASS_PANE";
 				Background.setType(Material.valueOf(Mat));
 			}
@@ -486,7 +486,7 @@ public class WardrobeGUI {
 						String Mat = "ROSE_RED";
 						Button.setType(Material.valueOf(Mat)); 
 					}
-					if (Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+					if (Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 						String Mat = "RED_DYE";
 						Button.setType(Material.valueOf(Mat)); 
 					}
@@ -532,7 +532,7 @@ public class WardrobeGUI {
 	
 // Create available slot
 	public static void CreateAvaiableSlotBackground(Inventory inv, String Name, Player p) {
-		if (Name.equals(WardrobeGUI.Page1Name)) {
+		if (inv == Page1) {
 			for (int i = 0; i <= 8; i++) {
 				if (p.hasPermission(Wardrobe.ConfigData.getConfig().getString("Slot-Permission.Slot-" + Integer.toString(i+1) + ".Permission"))) {
 					int CheckAmount = 0;
@@ -737,7 +737,7 @@ public class WardrobeGUI {
 				Mat = "STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 14);
-			} else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			} else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "RED_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -747,7 +747,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 1);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "ORANGE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -757,7 +757,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 4);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "YELLOW_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -767,7 +767,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 5);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "LIME_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -777,7 +777,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 13);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "GREEN_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -787,7 +787,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 4);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "LIGHT_BLUE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -797,7 +797,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 11);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "BLUE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -807,7 +807,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 2);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "MAGENTA_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -817,7 +817,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 10);
 			}
-			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 				Mat = "PURPLE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
@@ -882,7 +882,7 @@ public class WardrobeGUI {
 			Button.setType(Material.valueOf(Mat));
 			Button.setDurability((short) 8);
 		}
-		if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+		if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 			String Mat = "GRAY_DYE";
 			Button.setType(Material.valueOf(Mat));
 		}
@@ -910,7 +910,7 @@ public class WardrobeGUI {
 			Button.setType(Material.valueOf(Mat));
 			Button.setDurability((short) 9);
 		}
-		if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+		if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 			String Mat = "PINK_DYE";
 			Button.setType(Material.valueOf(Mat));
 		}
@@ -938,7 +938,7 @@ public class WardrobeGUI {
 			Button.setType(Material.valueOf(Mat));
 			Button.setDurability((short) 10);
 		}
-		if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+		if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 			String Mat = "LIME_DYE";
 			Button.setType(Material.valueOf(Mat));
 		}
