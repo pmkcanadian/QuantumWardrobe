@@ -14,6 +14,7 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 
 import me.LucFr.Wardrobe.Wardrobe;
+import me.LucFr.Wardrobe.GUI.CheckPlayerGUI;
 import me.LucFr.Wardrobe.GUI.WardrobeGUI;
 import me.LucFr.Wardrobe.Work.GUIWork;
 
@@ -89,7 +90,7 @@ public class WardrobeListener implements Listener{
 				if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
 					ButtonCheck = PresentButton.getData().toString();
 				}
-				if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+				if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 					ButtonCheck = PresentButton.getType().toString();
 				}
 				if (ButtonCheck.contains("LIME_DYE") || ButtonCheck.contains("LIME DYE")) {
@@ -98,7 +99,7 @@ public class WardrobeListener implements Listener{
 					if (Ver.contains("1.8")) {
 						sound = "VILLAGER_NO";
 					}
-					if (Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12") || Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+					if (Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12") || Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 						sound = "ENTITY_VILLAGER_NO";
 					}
 					p.playSound(p.getLocation(), Sound.valueOf(sound), 1.0f, 1.0f);
@@ -120,7 +121,7 @@ public class WardrobeListener implements Listener{
 				if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
 					ButtonCheck = PresentButton.getData().toString();
 				}
-				if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+				if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 					ButtonCheck = PresentButton.getType().toString();
 				}
 				if (ButtonCheck.contains("LIME_DYE") || ButtonCheck.contains("LIME DYE")) {
@@ -129,7 +130,7 @@ public class WardrobeListener implements Listener{
 					if (Ver.contains("1.8")) {
 						sound = "VILLAGER_NO";
 					}
-					if (Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12") || Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
+					if (Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12") || Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
 						sound = "ENTITY_VILLAGER_NO";
 					}
 					p.playSound(p.getLocation(), Sound.valueOf(sound), 1.0f, 1.0f);
@@ -146,90 +147,92 @@ public class WardrobeListener implements Listener{
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onClose(InventoryCloseEvent e) {
-		if (e.getView().getTitle().equals(WardrobeGUI.Page1Name)) {
-			Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".name", e.getPlayer().getName());
-			for (int i = 0; i <= 8; i++) {
-				if (e.getInventory().getItem(i).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Helmet", "none");
-				} else {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Helmet", e.getInventory().getItem(i));
+		if (CheckPlayerGUI.onOpen == false) {
+			if (e.getView().getTitle().equals(WardrobeGUI.Page1Name)) {
+				Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".name", e.getPlayer().getName());
+				for (int i = 0; i <= 8; i++) {
+					if (e.getInventory().getItem(i).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Helmet", "none");
+					} else {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Helmet", e.getInventory().getItem(i));
+					}
+					if (e.getInventory().getItem(i+9).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Chestplate", "none");
+					} else {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Chestplate", e.getInventory().getItem(i+9));
+					}
+					if (e.getInventory().getItem(i+18).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Leggings", "none");
+					} else {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Leggings", e.getInventory().getItem(i+18));
+					}
+					if (e.getInventory().getItem(i+27).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Boots", "none");
+					} else {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Boots", e.getInventory().getItem(i+27));
+					}
+					String ButtonCheck = "";
+					if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
+						ButtonCheck = e.getInventory().getItem(i+36).getData().toString();
+					}
+					if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
+						ButtonCheck = e.getInventory().getItem(i+36).getType().toString();
+					}
+					if (ButtonCheck.contains("LIME_DYE") || ButtonCheck.contains("LIME DYE")) {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Equipped");
+					} else if (ButtonCheck.contains("GRAY_DYE") || ButtonCheck.contains("GRAY DYE")) {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Empty");
+					} else if (ButtonCheck.contains("PINK_DYE") || ButtonCheck.contains("PINK DYE")) {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Ready");
+					} else {
+						Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Locked");
+					}
 				}
-				if (e.getInventory().getItem(i+9).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Chestplate", "none");
-				} else {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Chestplate", e.getInventory().getItem(i+9));
+				Wardrobe.Page_1.saveConfig();
+				Wardrobe.Page_1.ReloadConfig();
+			} else if (e.getView().getTitle().equals(WardrobeGUI.Page2Name)) {
+				Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".name", e.getPlayer().getName());
+				for (int i = 0; i <= 8; i++) {
+					if (e.getInventory().getItem(i).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Helmet", "none");
+					} else {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Helmet", e.getInventory().getItem(i));
+					}
+					if (e.getInventory().getItem(i+9).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Chestplate", "none");
+					} else {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Chestplate", e.getInventory().getItem(i+9));
+					}
+					if (e.getInventory().getItem(i+18).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Leggings", "none");
+					} else {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Leggings", e.getInventory().getItem(i+18));
+					}
+					if (e.getInventory().getItem(i+27).getType().toString().contains("STAINED_GLASS_PANE")) {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Boots", "none");
+					} else {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Boots", e.getInventory().getItem(i+27));
+					}
+					String ButtonCheck = "";
+					if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
+						ButtonCheck = e.getInventory().getItem(i+36).getData().toString();
+					}
+					if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
+						ButtonCheck = e.getInventory().getItem(i+36).getType().toString();
+					}
+					if (ButtonCheck.contains("LIME_DYE") || ButtonCheck.contains("LIME DYE")) {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Equipped");
+					} else if (ButtonCheck.contains("GRAY_DYE") || ButtonCheck.contains("GRAY DYE")) {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Empty");
+					} else if (ButtonCheck.contains("PINK_DYE") || ButtonCheck.contains("PINK DYE")) {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Ready");
+					} else {
+						Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Locked");
+					}
 				}
-				if (e.getInventory().getItem(i+18).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Leggings", "none");
-				} else {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Leggings", e.getInventory().getItem(i+18));
-				}
-				if (e.getInventory().getItem(i+27).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Boots", "none");
-				} else {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Boots", e.getInventory().getItem(i+27));
-				}
-				String ButtonCheck = "";
-				if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
-					ButtonCheck = e.getInventory().getItem(i+36).getData().toString();
-				}
-				if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
-					ButtonCheck = e.getInventory().getItem(i+36).getType().toString();
-				}
-				if (ButtonCheck.contains("LIME_DYE") || ButtonCheck.contains("LIME DYE")) {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Equipped");
-				} else if (ButtonCheck.contains("GRAY_DYE") || ButtonCheck.contains("GRAY DYE")) {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Empty");
-				} else if (ButtonCheck.contains("PINK_DYE") || ButtonCheck.contains("PINK DYE")) {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Ready");
-				} else {
-					Wardrobe.Page_1.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+1) + ".Button", "Locked");
-				}
+				Wardrobe.Page_2.saveConfig();
+				Wardrobe.Page_2.ReloadConfig();
 			}
-			Wardrobe.Page_1.saveConfig();
-			Wardrobe.Page_1.ReloadConfig();
-		} else if (e.getView().getTitle().equals(WardrobeGUI.Page2Name)) {
-			Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".name", e.getPlayer().getName());
-			for (int i = 0; i <= 8; i++) {
-				if (e.getInventory().getItem(i).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Helmet", "none");
-				} else {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Helmet", e.getInventory().getItem(i));
-				}
-				if (e.getInventory().getItem(i+9).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Chestplate", "none");
-				} else {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Chestplate", e.getInventory().getItem(i+9));
-				}
-				if (e.getInventory().getItem(i+18).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Leggings", "none");
-				} else {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Leggings", e.getInventory().getItem(i+18));
-				}
-				if (e.getInventory().getItem(i+27).getType().toString().contains("STAINED_GLASS_PANE")) {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Boots", "none");
-				} else {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Boots", e.getInventory().getItem(i+27));
-				}
-				String ButtonCheck = "";
-				if (Ver.contains("1.8") || Ver.contains("1.9") || Ver.contains("1.10") || Ver.contains("1.11") || Ver.contains("1.12")) {
-					ButtonCheck = e.getInventory().getItem(i+36).getData().toString();
-				}
-				if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17")) {
-					ButtonCheck = e.getInventory().getItem(i+36).getType().toString();
-				}
-				if (ButtonCheck.contains("LIME_DYE") || ButtonCheck.contains("LIME DYE")) {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Equipped");
-				} else if (ButtonCheck.contains("GRAY_DYE") || ButtonCheck.contains("GRAY DYE")) {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Empty");
-				} else if (ButtonCheck.contains("PINK_DYE") || ButtonCheck.contains("PINK DYE")) {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Ready");
-				} else {
-					Wardrobe.Page_2.getConfig().set(e.getPlayer().getUniqueId().toString() + ".Slot-" + (i+10) + ".Button", "Locked");
-				}
-			}
-			Wardrobe.Page_2.saveConfig();
-			Wardrobe.Page_2.ReloadConfig();
 		}
 	}
 }
