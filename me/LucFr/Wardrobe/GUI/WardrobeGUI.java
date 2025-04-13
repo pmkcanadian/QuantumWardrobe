@@ -738,7 +738,7 @@ public class WardrobeGUI {
 				AvailableBackground.setType(Material.valueOf(Mat));
 				AvailableBackground.setDurability((short) 14);
 			} else if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
-				Mat = "RED_STAINED_GLASS_PANE";
+				Mat = "LIGHT_BLUE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
 		} else if (Slot == 1 || Slot - 9 == 1 || Slot - 18 == 1  || Slot - 27 == 1) {
@@ -748,7 +748,7 @@ public class WardrobeGUI {
 				AvailableBackground.setDurability((short) 1);
 			}
 			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
-				Mat = "ORANGE_STAINED_GLASS_PANE";
+				Mat = "LIGHT_BLUE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
 		} else if (Slot == 2 || Slot - 9 == 2 || Slot - 18 == 2 || Slot - 27 == 2) {
@@ -758,7 +758,7 @@ public class WardrobeGUI {
 				AvailableBackground.setDurability((short) 4);
 			}
 			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
-				Mat = "YELLOW_STAINED_GLASS_PANE";
+				Mat = "LIGHT_BLUE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
 		} else if (Slot == 3 || Slot - 9 == 3 || Slot - 18 == 3 || Slot - 27 == 3) {
@@ -778,7 +778,7 @@ public class WardrobeGUI {
 				AvailableBackground.setDurability((short) 13);
 			}
 			if (Ver.contains("1.13") || Ver.contains("1.14") || Ver.contains("1.15") || Ver.contains("1.16") || Ver.contains("1.17") || Ver.contains("1.18")) {
-				Mat = "GREEN_STAINED_GLASS_PANE";
+				Mat = "LIGHT_BLUE_STAINED_GLASS_PANE";
 				AvailableBackground.setType(Material.valueOf(Mat));
 			}
 		} else if (Slot == 5 || Slot - 9 == 5 || Slot - 18 == 5 || Slot - 27 == 5) {
