@@ -32,7 +32,7 @@ jobs:
         run: mvn clean package
 
       - name: Upload .jar
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: QuantumWardrobe
           path: target/*.jar  # Correct path for Maven-generated .jar files
