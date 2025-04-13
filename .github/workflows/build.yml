@@ -36,3 +36,10 @@ jobs:
         with:
           name: QuantumWardrobe
           path: target/*.jar
+
+
+      - name: Upload .jar
+        uses: actions/upload-artifact@v3
+        with:
+          name: QuantumWardrobe
+          path: target/*.jar
