@@ -1,45 +1,25 @@
-name: Build QuantumWardrobe
+name: Build Plugin
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up JDK 17
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
-
-      - name: Cache Maven dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+          distribution: 'adopt'
 
       - name: Build with Maven
-        run: mvn clean package
+        run: mvn package
 
-      - name: Upload .jar
-        uses: actions/upload-artifact@v3
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
         with:
-          name: QuantumWardrobe
-          path: target/*.jar
-
-
-      - name: Upload .jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: QuantumWardrobe
-          path: target/*.jar
+          name: plugin-jar
+          path: build/libs/*.jar
